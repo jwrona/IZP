@@ -1,0 +1,535 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <title>IZP - Projekt č. 2</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2">
+  <meta name="GENERATOR" content="Quanta Plus">
+  <meta name="AUTHOR" content="David Martinek">
+  <meta name="KEYWORDS" content="">
+  <meta name="robots" content="noindex">
+  <link rel="StyleSheet" type="text/css" href="proj2_soubory/izpstyle.css" media="screen">
+  <link rel="StyleSheet" type="text/css" href="proj2_soubory/izpprint.css" media="print">
+</head>
+
+<body linkifytime="14" linkified="0" linkifying="false" class="page">
+
+<div class="copyright">
+  &#169; 2011 damig
+</div>
+
+<div class="dochead">
+  <h1 align="center">IZP - Projekt č. 2 - Iterační výpočty</h1>
+</div>
+
+<!-- begin include -->
+<!-- begin config -->
+<!-- end -->
+<div class="menu">
+  <div class="topitem">Projekty IZP</div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/index.html">Úvod</a></div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/info.html">Základní informace</a></div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/info-org.html">Organizace výuky</a></div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/advices.html">Rady pro řešení</a></div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/changes.html">Novinky <!-- begin flastmod -->
+24.10.11<!-- end --></a></div>
+  <hr>
+  <div class="topitem">Pravidla</div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/points.html">Bodové hodnocení</a></div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/rules.html">Odevzdávání</a></div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/doc.html">Dokumentace</a></div>
+  <hr>
+  <div class="topitem">Zadání</div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/proj1.html">Projekt 1</a></div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/proj2.html">Projekt 2</a></div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/proj3.html">Projekt 3</a></div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/proj4.html">Projekt 4</a></div>
+  <hr>
+  <div class="topitem">Řízené democvičení</div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/rdorg.html">Organizace</a></div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/rd1.html">Lekce 1</a></div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/rd2.html">Lekce 2</a></div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/rd3.html">Lekce 3</a></div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/rd4.html">Lekce 4</a></div>
+  <hr>
+  <div class="topitem">Cvičení</div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/proj2a.html">Vzorový projekt</a></div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/ukoly.html">Úlohy k&nbsp;procvičení</a></div>
+  <hr>
+  <div class="topitem">Užitečné</div>
+  <div class="item"><a href="http://www.fit.vutbr.cz/study/courses/IZP/">IZP</a></div>
+  <div class="item"><a href="http://www.fit.vutbr.cz/%7Emartinek/clang/index.html">C pro začátečníky</a></div>
+  <div class="item"><a href="http://www.fit.vutbr.cz/%7Emartinek/clang/noerrors.html">Zbytečné chyby</a></div>
+  <div class="item"><a href="https://www.fit.vutbr.cz/study/courses/IZP/private/projekty/kvalita-prog.html">Kvalita programů</a></div>
+  <hr>
+  <div class="item"><a href="http://www.fit.vutbr.cz/%7Emartinek/welcome.html">Autor</a></div>
+
+  <div class="tip">
+    <b>Tip:</b> Všechny zdejší stránky můžete vytisknout z vašeho 
+prohlížeče běžným způsobem. Jejich formátování se automaticky upraví pro
+ potřeby tisku.
+  </div>
+</div>
+  
+<!-- end  -->
+
+<div class="contents">
+  <!-- Obsah stránky -->
+  <div class="topic">
+  [ <a href="#motivation">&nbsp;Motivace&nbsp;</a> |
+    <a href="#problem">&nbsp;Zadání úlohy&nbsp;</a> |
+    <a href="#interface">&nbsp;Rozhraní programu&nbsp;</a> |
+    <a href="#points">&nbsp;Počet bodů&nbsp;</a> |
+    <a href="#bonus">&nbsp;Prémie&nbsp;</a> |
+    <a href="#what">&nbsp;Co se hodnotí&nbsp;</a> |
+    <a href="#help">&nbsp;Pomůcka&nbsp;</a> |
+    <a href="#theory">&nbsp;Teorie&nbsp;</a>]
+  </div>
+
+  <p class="important">
+<!--    Než začnete programovat, přečtěte si pozorně celé zadání.<br> -->
+    POZOR! TOTO ZADÁNÍ JE ZATÍM NEOFICIÁLNÍ A&nbsp;JEŠTĚ SE BUDE MĚNIT.<br>
+    MŮŽETE NAD NÍM ZAČÍT PŘEMÝŠLET, ALE PRŮBĚŽNĚ SLEDUJTE ZMĚNY NA TÉTO STRÁNCE.<br>
+    Poslední změna: <!-- begin flastmod -->
+13. října 2011<!-- end --></p>
+
+
+  <a name="motivation"></a>
+  <h3>Motivace</h3>
+  <p>Cílem této úlohy je naučit se nebo si zopakovat</p>
+  <ul>
+    <li>implementaci různých typů iteračních algoritmů,</li>
+    <li>tvorbu opatření pro překonání nedostatků počítače (heuristiku),</li>
+    <li>vytváření a používání obecných podprogramů, které zjednodušují řešení a jsou použitelné v jiných programech,</li>
+    <li>zpracování textově zapsané posloupnosti hodnot na standardním vstupu,</li>
+    <li>správné ošetřování chybových stavů programu,</li>
+    <li>vytváření přehledného zdrojového kódu.</li>
+  </ul>
+
+  <a name="problem"></a>
+  <h3>Zadání úlohy</h3>
+  <p>
+    Napište program, který pomocí iteračních algoritmů zpracuje 
+libovolně dlouhou posloupnost číselných hodnot typu double, které budou v
+ textové podobě zapsány na standardní vstup a budou odděleny libovolně 
+dlouhou posloupností bílých znaků. Výstupem programu bude číselná 
+posloupnost výsledků. Používejte konstanty (makra) NAN a INFINITY pro 
+ošetření výjimečných případů tak, aby to dávalo smysl.
+  </p>
+
+  <h4>Část 1. Aproximace funkcí</h4>
+  <p>Implementujte pomocí základních matematických operací (+, -, *, /) aproximace těchto matematických operací se zadanou přesností:</p>
+  <ul>
+<!--     <li><IMG src="files/sqrt.png" border="0"></li> -->
+<!--    <li><IMG src="files/tan.png" border="0">  (tangens)</li>-->
+<!--     <li><IMG src="files/sin.png" border="0">  (sinus)</li>  -->
+    <li>arcus sinus: <img src="proj2_soubory/arcsin.png" align="middle" border="0"></li> 
+<!--     <li><IMG src="files/ex.png"  border="0"></li> -->
+<!--     <li>hyperbolický tangens <IMG src="files/tanh.png" align="middle" border="0"></li> -->
+<!--     <li>obecná mocnina: <IMG src="files/ax.png" align="middle" border="0"></li> -->
+    <li>obecný logaritmus: <img src="proj2_soubory/logax.png" align="middle" border="0"></li>
+<!--     <li><IMG src="files/sqrtex.png" border="0"></li> -->
+<!--     <li><IMG src="files/sinlnx.png" border="0"></li> -->
+  </ul>
+
+  <p>
+    Vytvořené funkce aplikujte na každou hodnotu vstupní posloupnosti a 
+výsledky zapište na standardní výstup. Výstupní posloupnost hodnot bude v
+ tomto případě tedy stejně dlouhá, jako vstupní posloupnost. Počítejte v
+ oboru reálných čísel (není potřeba pracovat s komplexními čísly). 
+Určete maximální možné definiční obory těchto funkcí s ohledem na 
+použitý datový typ. U trigonometrických funkcí pracujte v radiánech.
+  </p>
+  <p>
+    Přesnost aproximace bude zadávána jako parametr příkazové řádky a 
+bude to celé číslo udávající počet platných cifer výsledku.
+  </p>
+  <p>
+    Pro vlastní výpočet je zakázáno používat standardní matematické 
+funkce, které vyčíslují hodnoty zadaných funkcí (sin, cos, tan, exp, 
+log, pow, ... a jejich deriváty). Smyslem této části úlohy jsou iterační
+ výpočty a jejich odvození z rekurentních vztahů. Je povoleno používat 
+matematickou knihovnu <tt>&lt;math.h&gt;</tt> kromě výše zmíněných 
+funkcí (můžete je použít například pro testování). Pokud si nejste 
+jistí, jak by se měly funkce chovat ve významných bodech svých 
+definičních oborů i mimo ně, můžete se inspirovat chováním standardních 
+funkcí z knihovny.
+  </p>
+
+  <p>
+    Ve <em>zdůvodněných</em> případech lze tyto knihovní funkce použít 
+pro pomocné výpočty. V žádném případě však s nimi nelze nahrazovat 
+iterační algoritmy.
+  </p>
+  <h4>Část 2. Geometrické funkce</h4>
+  <p>
+    Implementujte algoritmy, které ze vstupní posloupnosti popsané výše spočítají tyto údaje:
+  </p>
+  <ul>
+    <li>délku lomené čáry</li>
+    <li>délku lomené čáry s chybou</li>
+  </ul>
+  <p>
+    Vstupní posloupnost nyní interpretujte jako dvojice hodnot -- souřadnic v rovině takto:
+  </p>
+<pre>x1 y1 x2 y2 x3 y3 ...
+</pre>
+  <h5>Délka lomené čáry</h5>
+  <p>
+    Jednotlivé souřadnice vymezují posloupnost bodů spojených úsečkami 
+(vždy dva po sobě jdoucí body jsou spojeny úsečkou). Čtěte souřadnice 
+bodů ze vstupu a průběžně počítejte délku lomené čáry, kterou tyto body 
+vymezují. Výsledkem programu bude v těchto případech posloupnost 
+průběžných výsledků (součet doposud změřených úseček). Počet hodnot 
+výstupní posloupnosti bude poloviční délky jako vstupní posloupnost (na 
+každé dvě souřadnice připadá jeden průběžný výsledek). Po načtení 
+souřadnic prvního bodu bude zobrazená délka nulová. Skončí-li vstupní 
+posloupnost předčasně, bude posledním výsledkem hodnota NAN.
+  </p>
+  <h5>Délka lomené čáry s chybou</h5>
+  <p>
+    Zadání je v principu totožné s předchozí úlohou, ale v tomto případě
+ jsou souřadnice bodů v rovině nepřesné. Program bude spouštěn s dalším 
+parametrem ERR. Tento parametr udává absolutní chybu měření jednotlivých
+ souřadnic. Můžete si to představit tak, že souřadnice, které čtete ze 
+vstupu jsou získávány nějakým měřícím přístrojem, který není schopen 
+dávat výsledky s absolutní přesností. Místo toho je každé měření 
+zatíženo chybou. Pokud bude např. ERR=5, pak změřená hodnota souřadnice 
+x=35 odpovídá jakékoli hodnotě z intervalu 30 až 40. Bod v rovině tedy 
+budeme vnímat rozostřeně jako čtverec (obecně obdélník, pokud by byla 
+chyba v obou směrech různá). Jestliže souřadnice jsou nepřesné 
+(intervaly), pak i výsledná vzdálenost dvou bodů je nepřesná (interval) 
+(viz obrázek). Pro výpočty použijte intervalovou aritmetiku.
+  </p>
+<div align="center"><img src="proj2_soubory/delkausecky.png" alt="Délka úsečky a délka nepřesné úsečky." align="middle" border="0" height="300" width="340"></div>
+  <p>
+    Po každém přečtení dvou souřadnic nyní program vytiskne dvě hodnoty 
+průběžných délek - minimální a maximální délku. Posloupnost výsledných 
+hodnot tedy bude v ideálním případě stejně dlouhá jako vstupní 
+posloupnost.
+  </p>
+  <p>
+    Pokud pro výpočet bude potřeba složitější matematické funkce 
+(odmocnina, atd.), můžete v této části úlohy použít funkce ze standardní
+ matematické knihovny jazyka C.
+  </p>
+
+  <h4>Část 3. Dokumentace</h4>
+  <p>
+    Své řešení popište v dokumentaci. U výpočtů matematických funkcí se 
+zamyslete nad jednotlivými vztahy pro výpočet uvedených funkcí a popište
+ principy jejich použití s ohledem na co nejlepší konvergenci algoritmů.
+ Rovněž diskutujte, jak u aproximačních algoritmů dosáhnout požadované 
+přesnosti. V dokumentaci rovněž popište a zdůvodněte svůj návrh řešení 
+problémů s nekorektními vstupy.
+  </p>
+
+  <h4>Poznámky</h4>
+  <p>
+    Program musí fungovat pro libovolně dlouhou vstupní posloupnost 
+předem neznámé délky. Cyklus načítání hodnot ze standardního vstupu i 
+tisk výsledku se musí dít mimo tyto výpočetní funkce. V ideálním případě
+ půjde o jediný cyklus (nebo maximálně dva cykly) ve funkci main. Funkce
+ realizující dané výpočty musí být bez úprav použitelné např. v 
+programu, kde se prvky posloupnosti načítají ze souboru nebo se třeba 
+postupně čtou z nějakého portu a s výsledky se dále pracuje. Matematické
+ funkce by mělo jít bez problému použít ve výrazech podobně jako tomu je
+ u matematických funkcí ve standardní knihovně.
+  </p>
+  <p>
+    Vše potřebné pro vyřešení všech částí této úlohy je vysvětleno v 
+učebních textech a bude probráno na přednáškách a demonstračních 
+cvičeních. Pokud budete projekt řešit dříve, než se látka probere na 
+přednáškách, doporučuji přijít na konzultaci.
+  </p>
+
+  <a name="interface"></a>
+  <h3>Rozhraní programu</h3>
+  <p>
+    Program přečte z příkazového řádku přepínač, který specifikuje jednu z operací, a u některých operací požadovanou přesnost.
+  </p>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+      <tr>
+        <th width="20%">Funkce</th>
+        <th width="25%">Přepínač</th>
+        <th width="35%">Popis</th>
+        <th width="20%">Poznámka</th>
+      </tr>
+    </thead>
+    <tbody>
+<!--      <tr>
+        <td><IMG src="files/sqrt.png" width="62" height="32" border="0"></td>
+        <td><tt>proj2 - -sqrt epsilon</tt></td>
+        <td>10%</td>
+      </tr>
+-->
+      <tr>
+        <td>Nápověda</td>
+          <td><tt>proj2&nbsp;-h</tt></td>
+          <td>Vytiskne nápovědu k použití programu.</td>
+          <td>&nbsp;</td>
+          </tr>
+      <tr>
+        <td><img src="proj2_soubory/arcsin.png" border="0"></td>
+        <td><tt>proj2&nbsp;--arcsin&nbsp;sigdig</tt></td>
+        <td>sigdig - přesnost zadaná jako počet platných cifer (significant digits)</td>
+        <td>cca 25% funkčnosti programu</td>
+      </tr>
+
+      <tr>
+        <td><img src="proj2_soubory/logax.png" border="0"></td>
+        <td><tt>proj2&nbsp;--logax&nbsp;sigdig&nbsp;a</tt></td>
+        <td>sigdig - přesnost zadaná jako počet platných cifer (significant digits)<br>a - základ logaritmu</td>
+        <td>cca 25% funkčnosti programu</td>
+      </tr>
+
+
+      <tr>
+        <td>délka lomené čáry</td>
+        <td><tt>proj2&nbsp;--lbl</tt></td>
+        <td>Tiskne na výstup průběžnou délku lomené čáry vymezené již přečtenými souřadnicemi.</td>
+        <td>cca 15% funkčnosti programu</td>
+      </tr>
+
+      <tr>
+        <td>délka lomené čáry s chybou</td>
+        <td><tt>proj2&nbsp;--lble ERR</tt></td>
+        <td>Tiskne na výstup průběžnou délku lomené čáry vymezené již přečtenými souřadnicemi.<br>ERR - absolutní chyba měření souřadnic.</td>
+        <td>cca 35% funkčnosti programu</td>
+      </tr>
+
+
+<!--      <tr>
+        <td><IMG src="files/sqrtex.png" width="68" height="32" border="0"></td>
+        <td><tt>proj2 - -sqrtex epsilon</tt></td>
+        <td>20%</td>
+      </tr>
+-->
+<!--      <tr>
+        <td><IMG src="files/sinlnx.png" width="96" height="33" border="0"></td>
+        <td><tt>proj2 - -sinln epsilon</tt></td>
+        <td>30%</td>
+      </tr>
+-->
+    </tbody>
+  </table>
+
+  <p>
+    Číselnou posloupnost načítejte ze standardního vstupu. Jednotlivé 
+hodnoty budou odděleny "bílými znaky", tj. mezerami, tabulátory nebo 
+konci řádků. Formátem vstupních hodnot bude reálné číslo zapsané podle 
+zvyklostí jazyka C (můžete použít funkci scanf()). Posloupnost končí s 
+koncem souboru (EOF) a může být potenciálně nekonečná, takže program by 
+měl výsledky tisknout průběžně. Navrhněte a implementujte vhodné řešení 
+problému nekorektních vstupů s ohledem na použitelnost aplikace. Řešení 
+zdůvodněte v dokumentaci. 
+  </p>
+  <p>
+    Aproximované funkce aplikujte zvlášť na každý prvek posloupnosti. 
+Výsledkem aplikace těchto funkcí bude stejně dlouhá (první část úlohy) 
+nebo poloviční (druhá část úlohy) výstupní posloupnost výsledků. 
+Jednotlivé prvky výstupní posloupnosti vypisujte vždy na samostatný 
+řádek standardního výstupu.
+  </p>
+
+  <p>
+    Výsledkem aplikace geometrických funkcí je posloupnost průběžných výsledků (pozor, někdy není výsledek definován).
+  </p>
+
+  <p><b>Důležité!</b>
+    Aby bylo možné výsledky testovat, vypisujte každý výsledek tímto způsobem: <tt>printf("%.10e\n", vysledek);</tt> (tedy 10 desetinných míst při zápisu s exponentem). Každou jednotlivou hodnotu tiskněte na nový řádek.
+  </p>
+
+  <h4>Příklady vstupu a výstupu</h4>
+  <p>Příkazová řádka pro výpočet logaritmu o základu 2.71 s přesností na tři platné cifry:</p>
+<pre class="example">$ ./proj2 --logax 3 2.71
+</pre>
+   <p>Standardní vstup (psaný ručně nebo přesměrovaný ze souboru):</p>
+<pre class="example">1e24
+100000    1.97
+</pre>
+
+  <p>Odpovídající výstup:</p>
+<pre class="example">5.5262000000e+01
+1.1512776601e+01
+0.6780668847e+00
+</pre>
+<p>Poznámky:
+  </p><ul>
+    <li>Toto je jenom ukázka. Výsledné hodnoty se nemusí shodovat se správným řešením.</li>
+    <li>Pokud budete zadávat vstup ručně, je velmi pravděpodobné, že 
+program bude průběžně vracet výsledky po každém ukončeném řádku. Takové 
+chování je v pořádku. Nenechte se tím zmást a používejte raději 
+přesměrování souborů.</li>
+    <li>Přesnost na N cifer neznamená, že od cifry od N+1 pozice dále budou nuly, ale že na nich již nezáleží. </li>
+  </ul>
+
+  <a name="points"></a>
+  <h3>Maximální počet získaných bodů</h3>
+  <p>
+    Za tuto úlohu lze získat <strong>až 10 bodů</strong>. Součástí řešení je dokumentace, která je součástí předmětu IUS, a která je bodovaná zvlášť. Za dokumentaci lze získat <strong>až 10 bodů</strong>, které se počítají do IUS.
+  </p>
+
+  <a name="bonus"></a>
+  <h3>Prémie</h3>
+  <p>
+    Za tuto úlohu lze získat jeden prémiový bod, pokud implementujete 
+nějaké další zajímavé, netriviální operace nebo program rozšíříte jiným 
+netriviálním způsobem nebo pokud bude vaše implementace zvlášť povedená.
+ Zde nabízím náměty pro rozšíření:
+  </p>
+  <ul>
+    <li>výpočet určitého integrálu implementovaných funkcí obdélníkovou metodou (funkci lze v jazyce C předat jako argument jiné funkci)</li>
+    <li>výpočet určitého integrálu lichoběžníkovou metodou</li>
+  </ul>
+
+  <a name="what"></a>
+  <h3>Co se zejména hodnotí</h3>
+  <ul>
+    <li>Správné odvození definičního oboru.</li>
+    <li>Správná implementace v maximálním možném rozsahu vstupních 
+hodnot. (Nezapomeňte, že v jazyce C je legální pracovat i s nekonečnými a
+ nečíselnými hodnotami.)</li>
+    <li>Přesnost výpočtů musí odpovídat zadané přesnosti.</li>
+    <li>Odvození iteračních algoritmů a jejich efektivita s ohledem na 
+zvolenou přesnost (program nesmí nikdy skončit v nekonečném cyklu a musí
+ vždy skončit v rozumném čase).</li>
+    <li>Efektivita - hodnotí se i to, zda algoritmy neprovádějí zbytečné výpočty.</li>
+    <li>Kvalita návrhu datových typů a rozdělení programu na 
+podproblémy. Cyklus načítání hodnot ze vstupu a zápis výsledků na výstup
+ se nesmí vyskytovat uvnitř funkcí, které provádí vlastní výpočet!</li>
+    <li>V dokumentaci se hodnotí kvalita vyjadřování, věcná správnost, 
+přehlednost dokumentu a schopnost jeho rozčlenění do kapitol. Pravopisné
+ chyby budou mít na hodnocení negativní vliv!</li>
+  </ul>
+
+  <hr>
+  <a name="help"></a>
+  <h3>Pomůcka</h3>
+  <p>
+    Konec souboru (EOF) se v unixovém terminálu "zapíše" kombinací 
+kláves Ctrl+D, v DOSu (příkazovém řádku ve Windows) pomocí Ctrl+Z. Pro 
+testování (i reálné použití) je obvyklejší mít testovací data v textovém
+ souboru a použít operátor přesměrování. Stejně tak je rozumné si 
+ukládat výsledek do jiného textového souboru.
+  </p>
+<pre class="example">$ ./proj2 --tanh 3 &lt; input.txt &gt; output.txt
+</pre>
+
+  <p>
+    Pro vlastní řešení můžete potřebovat matematickou knihovnu, můžou se
+ vám z ní hodit některé funkce (fabs(), trunc(), modf(), ...). Její 
+použití vyžaduje vložení hlavičkového souboru <tt>&lt;math.h&gt;</tt>. Dále je nutno ji k programu připojit pomocí přepínače <tt>-lm</tt>.
+  </p>
+<pre class="example">$ gcc -std=c99 -Wall -pedantic -g <font color="blue">-lm</font> proj2.c -o proj2
+</pre>
+
+  <p>
+    Pokud potřebujete vracet hodnotu NaN (Not a Number - není číslo) 
+nebo nekonečno, v matematické knihovně najdete makra NAN a INFINITY. 
+Pokud nechcete matematickou knihovnu používat stačí vrátit hodnotu <tt>0.0/0.0</tt> (NaN, pozor některé nePC architektury ji nepodporují) nebo <tt>1.0/0.0</tt>
+ (nekonečno). Některé implementace standardní knihovny tato makra nemusí
+ obsahovat, potom můžete použít stejný postup a definovat si je sami. 
+Další užitečné konstanty jsou naneštěstí v nestandardním rozšíření 
+knihovny, takže raději do svého zdrojového souboru vložte toto:
+  </p>
+<pre class="example">const double IZP_E = 2.7182818284590452354;        // e
+const double IZP_PI = 3.14159265358979323846;      // pi
+const double IZP_2PI = 6.28318530717958647692;     // 2*pi
+const double IZP_PI_2 = 1.57079632679489661923;    // pi/2
+const double IZP_PI_4 = 0.78539816339744830962;    // pi/4
+</pre>
+
+  <p>
+    Výchozí rekurentní vztahy je vhodné upravit tak, aby byl výpočet co 
+nejefektivnější (některé funkce nejrychleji konvergují jen v určitém 
+rozsahu vstupních hodnot - viz literatura).
+  </p>
+
+  <a name="theory"></a>
+  <h3>Teorie</h3>
+  <p>
+    Pozor! Pokud někdo následující text použije v dokumentaci, bude 
+cvičící nucen jej v duchu označit nelichotivým příměrem a ohodnotit 
+sníženým počtem bodů. ;-)
+  </p>
+  <p>
+    Uvedené matematické funkce lze aproximovat pomocí rekurentních 
+vztahů, které vycházejí z Newtonovy iterační metody, Taylorova rozvoje 
+nebo součtu jiné nekonečné řady. U všech zde uvedených vztahů jde 
+vlastně o vyčíslování limity, jejíž hodnota představuje hledané řešení. 
+Obecně lze jeden krok iteračního výpočtu zapsat takto:
+  </p>
+<pre>  Y<sub>i+1</sub>=F(Y<sub>i</sub>), pro i &gt;= 0
+</pre>
+  <p>
+    kde <strong>i</strong> je index kroku, <strong>Y<sub>i</sub></strong> je hodnota v kroku i a <strong>F()</strong> je funkce pro výpočet dalšího kroku na základě výsledku předchozího kroku.
+  </p>
+  <p>
+    Pro úspěšné rozběhnutí algoritmu je nutné zvolit hodnotu <strong>Y<sub>0</sub></strong>, tedy počáteční aproximaci. Tato hodnota vyplývá z odvozeného rekurentního vzorce.
+  </p>
+
+  <p>
+    Protože limita je nekonečná, je nutné zvolit nějaké kritérium pro 
+ukončení algoritmu. Na počítači jsme hardwarem omezeni počtem 
+zobrazitelných číslic "reálných" čísel, takže se spokojíme s výpočtem, 
+který se s nějakou přesností přiblíží k přesné hodnotě. Dalším důvodem 
+pro výpočet se zadanou přesností je rychlost výpočtu - čím větší 
+přesnost požadujeme, tím déle výpočet trvá (u některých vztahů se 
+výpočet každého následujícího kroku zpomaluje!).
+  </p>
+  <p>
+    V našem případě použijeme přesnost zadanou číslem EPSILON. 
+Algoritmus výpočtu ukončíme, když absolutní hodnota rozdílu výsledků 
+dvou po sobě jdoucích kroků bude menší nebo rovna EPSILON:
+  </p>
+<pre>  |Y<sub>i+1</sub> - Y<sub>i</sub>| &lt;= EPSILON
+</pre>
+
+  <p>Protože v této úloze je přesnost zadána, jako počet platných cifer,
+ je nutné tento údaj vhodně přepočítat na hodnotu EPSILON. Jak jste to 
+udělali popíšete v dokumentaci.</p>
+
+  <p>
+    Bližší informace k problematice iteračních výpočtů lze nalézt např. ve skriptech <strong>Rábová, Honzík, Češka, Hruška: Počítače a programování</strong> nebo v <strong>Hans-Jochen Bartsch: Matematické vzorce</strong>
+ nebo na internetu. Zde ovšem můžete narazit na kvalitní, ale i na 
+docela zavádějící informace! Nevěřte všemu, co naleznete. Zvláště pak v 
+dokumentaci necitujte Wikipedii a jiné internetové zdroje. Ověřte si 
+nalezené informace ve spolehlivých zdrojích.
+  </p>
+
+  <h4>Tip pro funkce řešené Taylorovou řadou</h4>
+  <p>
+    Zadané funkce lze definovat i pomocí jiných funkcí, které lze Taylorovou řadou vyčíslit snadněji a přesněji.
+  </p>
+
+  <h4>Tip pro geometrické funkce</h4>
+  <p>
+    Velmi si zjednodušíte práci, když si budete průběžné výsledky 
+ukládat do
+    vhodné datové struktury (s konstantní prostorovou složitostí) a když
+ se co
+    nejdříve naučíte pracovat s podprogramy. Uvnitř podprogramů pro 
+výpočet
+    průběžných hodnot by se neměl vůbec vyskytovat cyklus. U obou funkcí
+ pro
+    výpočet délky lomené čáry by mělo jít o řešení s lineární časovou a 
+konstantní prostorovou složitostí. Pojmy časová a prostorová složitost 
+budou vysvětleny na jedné z posledních přednášek (podívejte se do slajdů
+ a do studijní opory).
+  </p>
+
+  <p>
+    Nikde v této úloze není potřeba použít datový typ pole, ani 
+dynamickou alokaci paměti. Použití těchto konstrukcí pravděpodobně 
+povede ke špatnému hodnocení.
+  </p>
+
+  <hr>
+  <p>
+    Autor: <a href="http://www.fit.vutbr.cz/%7Emartinek/welcome.html">David Martinek</a>. Poslední modifikace: <!-- begin flastmod -->
+13. října 2011<!-- end -->. Pokud v tomto dokumentu narazíte na chybu,  <a href="mailto:martinek@fit.vutbr.cz,smrcka@fit.vutbr.cz?subject=IZP%20-%20chyba%20v%20zad%C3%A1n%C3%AD%202">dejte nám prosím vědět</a>.
+  </p>
+</div>
+
+
+</body></html>
